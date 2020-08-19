@@ -57,6 +57,15 @@ The Python dependencies are listed in `reuirements.txt`.  Install them via:
 pip3 install -r requirements.txt
 ```
 
+Or, if you don't clone this repo:
+
+```sh
+pip3 install text2qti numpy pandas
+```
+
+If you use `conda` (or `brew`), feel free to install `pandas` and `numpy`
+using those tools.
+
 ## Other dependencies
 
 * LaTeX.  For `macOS` users, install [MacTex](https://tug.org/mactex/).
