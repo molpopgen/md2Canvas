@@ -41,6 +41,10 @@ The disadvantages are:
   question. (A good text editor helps to automate this!)
 * If you generate graphics with commercial software, then you'll need
   to export to `png` or `jpeg`.  See below for alternatives.
+* Always check the formatting of your work!  One way is to do 
+  a "dummy" upload to Canvas. (Pretty fast to do.)  You
+  can also unzip the `QTI zip` file and inspect the images
+  manually.
 
 ## Python dependencies
 
@@ -52,7 +56,7 @@ pip3 install -r requirements.txt
 
 ## Other dependencies
 
-* LaTeX.  For `macOS` users, install [MaxTex](https://tug.org/mactex/).
+* LaTeX.  For `macOS` users, install [MacTex](https://tug.org/mactex/).
 * [ImageMagick](https://imagemagick.org/index.php)
 * [pandoc](https://pandoc.org)
 
