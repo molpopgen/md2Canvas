@@ -103,3 +103,87 @@ for _ in range(50):
 ```
 
 END_GROUP
+
+% Problems based on random graphics used for the answers
+% Also uses viridis for discrete plots, which is handy
+% for accessibility.
+% The question gets all unique combos of size 3 from 
+% [1, 10), generates a plot with that many colors.
+% Each plot is part of the answer field.
+% This is an advanced one!
+% This is also a bad question, and is just an example
+% using random graphical answers.  Even with viridis,
+% it isn't reasonable to expect someone to tell 7 
+% from 8 different colors.  The color map
+% saturates at the hot/cold extremes.
+
+GROUP
+pick: 1
+
+```{.python3 .run}
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+import textwrap
+import pandas as pd
+import itertools
+import random
+
+# help from https://stackoverflow.com/questions/7941226/how-to-add-line-based-on-slope-and-intercept-in-matplotlib     
+def makeplot(ncolors, qid):
+    # pick colors uniformly from viridis
+    viridis = matplotlib.cm.get_cmap('viridis', 12)
+    cmap = viridis(np.linspace(0, 1, ncolors))
+    intercept = 0
+    f = plt.figure()
+    axes = plt.gca()
+    for slope in range(ncolors):
+        x_vals = np.array(axes.get_xlim())
+        y_vals = intercept + slope * x_vals
+        plt.plot(x_vals, y_vals, '--', color=cmap[slope])
+        intercept += 0.25
+    pname = "random_colors_question_" + f"{qid}_{ncolors}.png"
+    plt.xlim(0.0, 1.0)
+    plt.savefig(pname)
+    plt.close()
+    return pname
+    
+def get_subsets():
+    s = {i+1 for i in range(10)}
+    n = 4
+    return list(itertools.combinations(s, n))
+
+combos = get_subsets()
+combos = random.sample(combos, 10)
+    
+for qid, c in enumerate(combos):
+    pngfiles = []
+    for ncolors in c:
+        pngfiles.append(makeplot(ncolors, qid))
+    if qid not in c:
+        q=rf"""
+        1. Which plot has {qid} colors?
+        [*] None of them
+        [ ] ![]({pngfiles[0]})
+        [ ] ![]({pngfiles[1]})
+        [ ] ![]({pngfiles[2]})
+        """
+    else:
+        answers = []
+        for i, j in enumerate(c):
+            if j == qid:
+                answers.append('*')
+            else:
+                answers.append('')
+        q=rf"""
+        1. Which plot has {qid} colors?
+        [{answers[0]}] ![]({pngfiles[0]})
+        [{answers[1]}] ![]({pngfiles[1]})
+        [{answers[2]}] ![]({pngfiles[2]})
+        [{answers[3]}] ![]({pngfiles[3]})
+        """
+        
+    print(textwrap.dedent(q))
+``` 
+ 
+END_GROUP
