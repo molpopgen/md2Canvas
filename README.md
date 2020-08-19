@@ -19,6 +19,9 @@ The advantages of this approach are:
   This approach lets you generate dozens or hundreds of permutations
   of a single question!
 * You can use Python to generate graphics for the questions.
+* For many faculty and students, we can leverage skills we've already developed
+  elsewhere: Python programming, content generation via markdown, and using version
+  control software are daily activities for many of us.
 
 The disadvantages are:
 
