@@ -173,3 +173,27 @@ The advantage of this approach is that you only ever need to store your
 `Settings -> Upload Course Content` and probably create a new question bank.
 Remember to "bookmark" it if it is uploaded to a "sandbox" course.
 You'll also need to burn sage or perform a sacrifice of some sort.
+
+## Advanced example of coupled questions
+
+Canvas does not support a question group from which two questions are pulled
+where they both use the same data, or the answer of the second builds on the
+answer to the first.  A workaround is given in `quizzes/quiztemplate.md`,
+where we change the work flow:
+
+* `quizzes/quiztemplate.md` is now an "upstream" quiz template, from
+  which we will generate some number of quizzes.
+* This quiz template contains a Python block that generates two 
+  "paired" questions based on random data using Python.
+* If we copy this template to `quiz1.md` through `quizN.md` and
+  process each with `text2qti`, we have effectively generated
+  random paired questions from a "group".
+
+My approach to building these metaprogramming quizzes again uses a `Makefile`. However,
+I use a potentially non-portable trick to use the `bash` shell for file pattern expansion.
+Thus, I've written a separate `Makefile`, which you can execute as:
+
+```sh
+cd quizzes
+make -f Makefile.quiztemplate
+```
