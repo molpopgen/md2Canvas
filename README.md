@@ -27,7 +27,8 @@ The disadvantages are:
 
 * You need to learn `markdown`.  Fortunately, that is relatively rather easy.
   In fact, `Rstudio` users, etc., will already know the basics here.
-* Knowledge of LaTeX and Python add considerable value.
+* Knowledge of LaTeX and Python add considerable value, but some people may be unfamiliar
+  with one or both.
 
 ## General comments
 
@@ -48,6 +49,13 @@ The disadvantages are:
   a "dummy" upload to Canvas. (Pretty fast to do.)  You
   can also unzip the `QTI zip` file and inspect the images
   manually.
+* If you make images with commercial tools, **do not**
+  store them in the same folder as your markdown files!
+  The reason is that the messy build outputs (see below)
+  mean that you may end up with a clutter of `jpg`
+  files that you made in `Illustrator` and `jpg`
+  ouput from Python scripts, making an `rm -f *.jpg`
+  cleanup step a bad idea.
 
 ## Python dependencies
 
