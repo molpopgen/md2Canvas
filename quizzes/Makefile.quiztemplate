@@ -1,0 +1,15 @@
+SHELL=/bin/bash
+Q:=$(shell echo quiztemplate{1,2,3}.zip)
+
+all: $(Q)
+
+clean:
+	rm -f $(Q)
+
+%.md: quiztemplate.md
+	cp $< $@
+
+%.zip: %.md
+	text2qti --run-code-blocks --pandoc-mathml $<
+	rm -f _text2qti_cache.zip
+
