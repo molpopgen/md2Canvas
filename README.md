@@ -56,6 +56,9 @@ The disadvantages are:
   files that you made in `Illustrator` and `jpg`
   ouput from Python scripts, making an `rm -f *.jpg`
   cleanup step a bad idea.
+* The quizzes are built using pandoc to render any mathematics.
+  If you include LaTeX in quiz answers and then edit them in Canvas, the questions get "mangled".
+  A better solution is to follow guidelines re: LaTeX in the text2qti README concerning LaTeX.
 
 ## Python dependencies
 
