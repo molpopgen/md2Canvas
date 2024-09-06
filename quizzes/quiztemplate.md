@@ -1,19 +1,19 @@
 1. What's the answer
 [*] Right
 [] Wrong
-   ... oops
+... oops
 
 GROUP
 pick: 1
 1. What's the answer to this
 [*] Right
 [] Wrong
-   ... oops
+... oops
 
 1. What's the answer to this one
 [*] Right
 [] Wrong
-   ... oops
+... oops
 END_GROUP
 
 
@@ -29,12 +29,12 @@ q = rf"""
 1. What is ${x}$ + ${y}$?
 [*] ${x+y}$
 [ ] ${x*y}$
-    ... Looks like you multiplied...
+... Looks like you multiplied...
 
 2. What is $2$ times the answer to the previous question?
 [*] ${2*(x+y)}$
 [ ] ${2*x*y}$
-    ... Looks like you multiplied...
+... Looks like you multiplied...
 """
 
 
